@@ -1,0 +1,3 @@
+# Composer needs these to build the vendor folder. The package does not.
+/composer.json
+/composer.lock

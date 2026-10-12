@@ -1,0 +1,135 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "3e8a49c64993feb29d80abddba8f40d3",
+    "packages": [
+        {
+            "name": "scottoffen/markdown-converter",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scottoffen/lib-php-markdown-converter.git",
+                "reference": "95d74bca4f1b7258a33dd3d0da29de38448e9478"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scottoffen/lib-php-markdown-converter/zipball/95d74bca4f1b7258a33dd3d0da29de38448e9478",
+                "reference": "95d74bca4f1b7258a33dd3d0da29de38448e9478",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.5 || ^11.5 || ^12.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Scott Offen"
+                }
+            ],
+            "description": "Converts Markdown to safe HTML, with GitHub-style tables, images, and alerts.",
+            "homepage": "https://github.com/scottoffen/lib-php-markdown-converter",
+            "keywords": [
+                "alerts",
+                "gfm",
+                "github-flavored-markdown",
+                "html",
+                "markdown",
+                "math",
+                "mermaid",
+                "safe",
+                "sanitize",
+                "tables"
+            ],
+            "support": {
+                "docs": "https://scottoffen.github.io/lib-php-markdown-converter/",
+                "issues": "https://github.com/scottoffen/lib-php-markdown-converter/issues",
+                "source": "https://github.com/scottoffen/lib-php-markdown-converter/tree/v1.0.0"
+            },
+            "time": "2026-10-09T22:56:27+00:00"
+        },
+        {
+            "name": "scottoffen/wp-github-updater",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scottoffen/wp-github-updater.git",
+                "reference": "9640f3e7cab1b50d63afe0df63809463bf0e5ae5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scottoffen/wp-github-updater/zipball/9640f3e7cab1b50d63afe0df63809463bf0e5ae5",
+                "reference": "9640f3e7cab1b50d63afe0df63809463bf0e5ae5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=8.1",
+                "scottoffen/markdown-converter": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.5 || ^11.5 || ^12.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Scott Offen"
+                }
+            ],
+            "description": "Update WordPress plugins and themes from GitHub releases using both public and private repositories.",
+            "homepage": "https://github.com/scottoffen/wp-github-updater",
+            "keywords": [
+                "github",
+                "plugin",
+                "releases",
+                "theme",
+                "updater",
+                "wordpress"
+            ],
+            "support": {
+                "docs": "https://scottoffen.github.io/wp-github-updater/",
+                "issues": "https://github.com/scottoffen/wp-github-updater/issues",
+                "source": "https://github.com/scottoffen/wp-github-updater/tree/v0.1.0"
+            },
+            "time": "2026-10-12T00:35:34+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.1"
+    },
+    "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.1.0"
+    },
+    "plugin-api-version": "2.9.0"
+}

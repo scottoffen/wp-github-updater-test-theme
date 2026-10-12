@@ -1,0 +1,68 @@
+# Creates a draft release that gets one thing wrong on purpose, so the updater
+# can be watched refusing it on a real site.
+#
+# Run this by hand from the Actions tab. It builds the real zip for the one
+# package under src/, changes it according to the defect, and creates a draft
+# release. Drafts do not exist as far as the updater is concerned, so nothing
+# happens until the draft is published. Delete the release and its tag when
+# the test is done.
+#
+# The defects are described in scripts/defect-release.ps1 and in the README.
+name: Defect Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      defect:
+        description: 'What to get wrong'
+        required: true
+        type: choice
+        options:
+          - wrong-folder
+          - no-folder
+          - wrong-asset-name
+          - two-assets
+          - no-asset
+          - bad-tag
+          - pre-release-flag
+      version:
+        description: 'Version for the defect release, three numbers. Use the version the checklist item gives. It must not have a release or tag yet'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+# Never cancel a run that is already creating a release.
+concurrency:
+  group: defect-release
+  cancel-in-progress: false
+
+jobs:
+  defect:
+    name: Create the defect release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # create the draft release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # The packaging script runs composer install, so Composer has to be on
+      # the PATH.
+      - name: Set up PHP and Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer:v2
+
+      # Values from inputs reach the shell through env vars, never by
+      # interpolating them into the script text.
+      - name: Create the draft release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DEFECT: ${{ inputs.defect }}
+          VERSION: ${{ inputs.version }}
+        run: ./scripts/defect-release.ps1 -Defect $env:DEFECT -Version $env:VERSION

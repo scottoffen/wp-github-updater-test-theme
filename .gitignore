@@ -1,0 +1,5 @@
+# Build output
+/dist/
+
+# Installed by the packaging script during the build, never committed
+/src/*/vendor/
